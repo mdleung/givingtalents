@@ -18,7 +18,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: |
-              gh secret set SSH_PRIVATE_KEY --body "$(sed -e 's/\r$//g' /home/customer/.ssh/id_rsa)"
+              ssh-private-key: ${{ secrets.siteground }}
           # if your key is passphrase‐protected, uncomment next line
           # ssh-passphrase: ${{ secrets.SSH_PASSPHRASE }}
 
