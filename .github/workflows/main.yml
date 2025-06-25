@@ -24,8 +24,9 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.HOST }}" >> ~/.ssh/known_hosts
 
-      - name: Sync files to SiteGround
-        run: |
-          rsync -avz --delete -e "ssh -p 18765" \
-            ./ \
-            u1083-2m4vcwbgzr7k@ssh.givingtalents.org:/home/u1083-2m4vcwbgzr7k/www/givingtalents.org/public_html
+- name: Sync changed files to SiteGround
+  run: |
+    rsync -az --info=progress2 --partial --inplace --no-perms --no-group --no-owner --exclude=".git*" \
+      -e "ssh -p 18765" \
+      ./ \
+      u1083-2m4vcwbgzr7k@ssh.givingtalents.org:/home/u1083-2m4vcwbgzr7k/www/givingtalents.org/public_html
