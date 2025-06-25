@@ -28,6 +28,7 @@ Route::delete('/talent-submission/{id}', [TalentSubmissionController::class, 'de
 
 // Admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/talent-submissions', [TalentSubmissionController::class, 'index'])->name('talent-submissions.index');
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::get('/submission/{id}', [AdminController::class, 'show'])->name('show');
     Route::delete('/submission/{id}', [AdminController::class, 'destroy'])->name('destroy');
