@@ -23,7 +23,7 @@ jobs:
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_rsa
 
-      - name: Sync Laravel core (excluding /public) to laravel_core/
+      - name: Sync Laravel core (excluding /public) to laravel/
         run: |
           echo "Testing SSH connection..."
           ssh -vvv -p 18765 -i ~/.ssh/id_rsa u1083-2m4vcwbgzr7k@ssh.givingtalents.org "echo 'SSH connected OK'"
@@ -33,17 +33,11 @@ jobs:
             --exclude .git --exclude node_modules --exclude vendor \
             --exclude public \
             -e "ssh -p 18765 -o StrictHostKeyChecking=no" \
-            ./ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/laravel_core/
+            ./ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/laravel/
 
-      - name: Sync public/ to public_html/
+      - name: Run Composer Install via SSH
         run: |
-          rsync -avz \
-          -e "ssh -p 18765 -o StrictHostKeyChecking=no" \
-          ./public/ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/public_html/
-
-      - name: Patch index.php to point to laravel_core
-        run: |
-          ssh -p 18765 u1083-2m4vcwbgzr7k@ssh.givingtalents.org << 'EOF'
-          sed -i 's|__DIR__/../vendor|__DIR__/../laravel_core/vendor|g' ~/www/givingtalents.org/public_html/index.php
-          sed -i 's|__DIR__/../bootstrap|__DIR__/../laravel_core/bootstrap|g' ~/www/givingtalents.org/public_html/index.php
+          ssh -p 18765 ssh_user@ssh.givingtalents.org << 'EOF'
+            cd /home/customer/www/givingtalents.org/laravel
+            composer install --no-dev --optimize-autoloader
           EOF
