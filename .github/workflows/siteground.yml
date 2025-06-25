@@ -41,3 +41,6 @@ jobs:
             cd /home/customer/www/givingtalents.org/laravel
             composer install --no-dev --optimize-autoloader
           EOF
+
+      - name: Confirm Deployment Finished
+        run: echo "✅ Deployment complete!"
