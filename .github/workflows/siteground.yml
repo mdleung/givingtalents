@@ -37,7 +37,7 @@ jobs:
 
       - name: Run Composer Install via SSH
         run: |
-          ssh -p 18765 -e "ssh -p 18765 -o StrictHostKeyChecking=no" ssh_user@ssh.givingtalents.org << 'EOF'
+          ssh -p 18765 -o StrictHostKeyChecking=no" ssh_user@ssh.givingtalents.org << 'EOF'
             cd /home/customer/www/givingtalents.org/laravel
             composer install --no-dev --optimize-autoloader
           EOF
