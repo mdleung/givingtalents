@@ -25,6 +25,10 @@ jobs:
 
       - name: Sync Laravel core (excluding /public) to laravel_core/
         run: |
+          echo "Testing SSH connection..."
+          ssh -p 18765 -i ~/.ssh/id_rsa u1083-2m4vcwbgzr7k@ssh.givingtalents.org "echo 'SSH connected OK'"
+
+          echo "Starting rsync..."
           rsync -avz --delete \
             --exclude .git --exclude node_modules --exclude vendor \
             --exclude public \
