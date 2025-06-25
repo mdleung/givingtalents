@@ -32,6 +32,7 @@ jobs:
           rsync -avz --delete \
             --exclude .git --exclude node_modules --exclude vendor \
             --exclude public \
+            -e "ssh -o StrictHostKeyChecking=no" \
             ./ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/laravel_core/
 
       - name: Sync public/ to public_html/
