@@ -70,7 +70,7 @@
             <!-- Main Container -->
             <div class="glass-effect rounded-3xl p-8 md:p-12 shadow-2xl hover-lift">
                 <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">
-                    What's 1 talent you can commit this month?
+                    Share Your Talent
                 </h1>
                 
                 @if(session('success'))
@@ -124,26 +124,19 @@
                     </div>
                     
                     <div class="space-y-2">
-                        <label for="talent_description" class="block text-lg font-semibold text-purple-deep">Describe your talent</label>
+                        <label for="talent_description" class="block text-lg font-semibold text-purple-deep">What talent would you like to share? <span class="text-red-500">*</span></label>
                         <textarea id="talent_description" 
                                   name="talent_description" 
                                   required
                                   rows="6"
+                                  placeholder="Describe your talent, skill, or ability that you'd like to share with others..."
                                   class="form-input w-full px-6 py-4 border-2 border-purple-brand/30 rounded-xl focus:border-purple-brand focus:ring-4 focus:ring-purple-brand/20 outline-none text-lg bg-white/80 resize-none">{{ old('talent_description') }}</textarea>
-                    </div>
-                    
-                    <div class="space-y-2">
-                        <label for="comments" class="block text-lg font-semibold text-purple-deep">Email and other comments <span class="text-orange-brand font-normal">(optional, if you want us to get back to you!)</span></label>
-                        <textarea id="comments" 
-                                  name="comments"
-                                  rows="4"
-                                  class="form-input w-full px-6 py-4 border-2 border-purple-brand/30 rounded-xl focus:border-purple-brand focus:ring-4 focus:ring-purple-brand/20 outline-none text-lg bg-white/80 resize-none">{{ old('comments') }}</textarea>
                     </div>
                     
                     <div class="text-center pt-4">
                         <button type="submit" 
                                 class="gradient-bg text-white font-bold py-4 px-12 rounded-xl text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover-lift">
-                            Use your talent ✨
+                            Share My Talent
                         </button>
                     </div>
                 </form>
@@ -151,7 +144,7 @@
                 <!-- Talent Board Section -->
                 <div class="mt-16">
                     <h2 class="text-2xl md:text-3xl font-bold mb-8 gradient-text text-center">
-                        What others have committed:
+                        What Others Have Committed
                     </h2>
                     
                     <div class="bg-white/60 rounded-2xl p-6 max-h-96 overflow-y-auto shadow-inner border border-purple-brand/20">
@@ -174,9 +167,7 @@
                                             <button type="submit" 
                                                     class="text-red-500 hover:text-red-700 hover:bg-red-50 p-2 rounded-lg transition-all duration-200 group"
                                                     title="Remove this submission">
-                                                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                </svg>
+                                                Remove
                                             </button>
                                         </form>
                                     </div>
