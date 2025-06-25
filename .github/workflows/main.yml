@@ -30,11 +30,6 @@ jobs:
         env:
           DISPLAY: ":0"
 
-      - name: Add SiteGround to known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.HOST }}" >> ~/.ssh/known_hosts
-
       - name: Sync files to SiteGround
         run: |
           rsync -avz --delete -e "ssh -p 18765" \
