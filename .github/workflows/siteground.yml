@@ -37,7 +37,9 @@ jobs:
 
       - name: Sync public/ to public_html/
         run: |
-          rsync -avz ./public/ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/public_html/
+          rsync -avz \
+          -e "ssh -p 18765 -o StrictHostKeyChecking=no" \
+          ./public/ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/public_html/
 
       - name: Patch index.php to point to laravel_core
         run: |
