@@ -1,0 +1,30 @@
+name: Deploy to SiteGround
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SG }}
+
+      - name: Add SiteGround to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.HOST }}" >> ~/.ssh/known_hosts
+      - name: Sync files to SiteGround
+        run: |
+          rsync -avz --delete -e "ssh -p 18765" \
+            ./ \
+            u1083-2m4vcwbgzr7k@ssh.givingtalents.org:/home/u1083-2m4vcwbgzr7k/www/givingtalents.org/public_html
