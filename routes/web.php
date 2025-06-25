@@ -25,6 +25,7 @@ Route::get('/vision-mission', [PageController::class, 'visionMission'])->name('v
 // Talent submission routes
 Route::post('/submit-talent', [TalentSubmissionController::class, 'store'])->name('talent-submissions.store');
 Route::delete('/talent-submission/{id}', [TalentSubmissionController::class, 'destroy'])->name('talent-submissions.destroy');
+Route::resource('talent-submissions', TalentSubmissionController::class);
 
 // Admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -33,4 +34,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/submission/{id}', [AdminController::class, 'show'])->name('show');
     Route::delete('/submission/{id}', [AdminController::class, 'destroy'])->name('destroy');
     Route::post('/submission/{id}/restore', [AdminController::class, 'restore'])->name('restore');
+
+
 });
