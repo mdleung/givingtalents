@@ -40,7 +40,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img src="/logo.webp" alt="Giving Talents" class="h-10 w-auto">
+                        <img src="{{ asset('logo.webp') }}" alt="Giving Talents" class="h-10 w-auto">
                         <span class="ml-2 text-xl font-bold text-purple-deep">Giving Talents</span>
                     </a>
                 </div>
