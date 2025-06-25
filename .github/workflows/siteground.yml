@@ -1,9 +1,7 @@
 name: Deploy Laravel to SiteGround
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -30,7 +28,7 @@ jobs:
 
           echo "Starting rsync..."
           rsync -avz --delete \
-            --exclude .git --exclude node_modules --exclude vendor \
+            --exclude .git --exclude .env --exclude node_modules --exclude vendor \
             -e "ssh -p 18765 -o StrictHostKeyChecking=no" \
             ./ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/laravel/
 
