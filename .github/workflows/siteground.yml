@@ -1,0 +1,44 @@
+name: Deploy Laravel to SiteGround
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to SiteGround
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH key and known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SGSSH }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p 18765 ssh.givingtalents.org >> ~/.ssh/known_hosts
+          eval "$(ssh-agent -s)"
+          echo "${{ secrets.SGSSHPWD }}" | SSH_ASKPASS=/bin/echo ssh-add ~/.ssh/id_rsa
+        env:
+          DISPLAY: ":0"
+
+      - name: Sync Laravel core (excluding /public) to laravel_core/
+        run: |
+          rsync -avz --delete \
+            --exclude .git --exclude node_modules --exclude vendor \
+            --exclude public \
+            ./ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/laravel_core/
+
+      - name: Sync public/ to public_html/
+        run: |
+          rsync -avz ./public/ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/public_html/
+
+      - name: Patch index.php to point to laravel_core
+        run: |
+          ssh -p 18765 u1083-2m4vcwbgzr7k@ssh.givingtalents.org << 'EOF'
+          sed -i 's|__DIR__/../vendor|__DIR__/../laravel_core/vendor|g' ~/www/givingtalents.org/public_html/index.php
+          sed -i 's|__DIR__/../bootstrap|__DIR__/../laravel_core/bootstrap|g' ~/www/givingtalents.org/public_html/index.php
+          EOF
