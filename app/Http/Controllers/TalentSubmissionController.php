@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\TalentSubmission;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
-use Google\Client as GoogleClient;
-use Google\Service\Gmail;
-use Google\Service\Gmail\Message;
 
 class TalentSubmissionController extends Controller
 {
@@ -55,9 +52,6 @@ class TalentSubmissionController extends Controller
         
         $submission = TalentSubmission::create($validated);
         
-        // Send email notification
-        $this->sendEmailNotification($submission);
-        
         // Clear rate limiter on successful submission
         RateLimiter::clear($key);
         
@@ -82,41 +76,6 @@ class TalentSubmissionController extends Controller
         }
         
         return false;
-    }
-    
-    private function sendEmailNotification($submission)
-    {
-        try {
-            $client = app(GoogleClient::class);
-            $service = new Gmail($client);
-
-            $messageContent = "New talent submission received:\n\n" .
-                              "Name: {$submission->name}\n" .
-                              "Talent: {$submission->talent_description}\n" .
-                              "Comments: {$submission->comments}\n" .
-                              "Submitted at: {$submission->created_at}";
-
-            $mime = "MIME-Version: 1.0\r\n";
-            $mime .= "From: " . config("mail.from.address") . "\r\n";
-            $mime .= "To: email@beyondtheconversation.ca\r\n";
-            $mime .= "Subject: New Talent Submission\r\n";
-            $mime .= "Content-Type: text/plain; charset=UTF-8\r\n";
-            $mime .= "Content-Transfer-Encoding: base64\r\n\r\n";
-            $mime .= base64_encode($messageContent);
-
-            $message = new Message();
-            $message->setRaw(strtr(base64_encode($mime), 
-                                   array(
-                                       '+' => '-',
-                                       '/' => '_'
-                                   )));
-
-            $service->users_messages->send("me", $message);
-
-        } catch (\Exception $e) {
-            // Log error but don't fail the submission
-            \Log::error("Failed to send email notification: " . $e->getMessage());
-        }
     }
     
     public function destroy($id)

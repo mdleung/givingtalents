@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TalentSubmissionController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,13 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [TalentSubmissionController::class, 'index'])->name('talent-submissions.index');
+// Main website pages
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/social-events', [PageController::class, 'socialEvents'])->name('social-events');
+Route::get('/vision-mission', [PageController::class, 'visionMission'])->name('vision-mission');
+
+// Talent submission routes
 Route::post('/submit-talent', [TalentSubmissionController::class, 'store'])->name('talent-submissions.store');
 Route::delete('/talent-submission/{id}', [TalentSubmissionController::class, 'destroy'])->name('talent-submissions.destroy');
 
