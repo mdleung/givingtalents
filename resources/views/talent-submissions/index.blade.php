@@ -64,7 +64,7 @@
         <div class="max-w-4xl mx-auto">
             <!-- Logo Section -->
             <div class="text-center mb-12">
-                <img src="/logo.webp" alt="Giving Talents Logo" class="mx-auto h-32 w-auto mb-6 hover-lift">
+                <img src="{{ asset('logo.webp') }}" alt="Giving Talents Logo" class="mx-auto h-32 w-auto mb-6 hover-lift">
             </div>
             
             <!-- Main Container -->
