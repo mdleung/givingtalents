@@ -9,31 +9,32 @@
     RewriteCond %{HTTPS} off
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+    # Pass Authorization Header to Laravel
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
 
     # Handle Front Controller (Laravel)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-
-    # Pass Authorization Header to Laravel
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
     ErrorDocument 404 /index.php
 </IfModule>
 
-# Block .env, .git and other hidden files
+# Block .env, .git, and other hidden files
 <FilesMatch "^\.">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# Block access to composer files
+# Block access to composer and package files
 <FilesMatch "^(composer\.json|composer\.lock|package\.json|package-lock\.json)$">
     Order allow,deny
     Deny from all
