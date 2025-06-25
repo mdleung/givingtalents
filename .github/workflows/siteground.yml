@@ -31,7 +31,6 @@ jobs:
           echo "Starting rsync..."
           rsync -avz --delete \
             --exclude .git --exclude node_modules --exclude vendor \
-            --exclude public \
             -e "ssh -p 18765 -o StrictHostKeyChecking=no" \
             ./ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/laravel/
 
