@@ -17,8 +17,8 @@ jobs:
       - name: Set up SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: |
-              ssh-private-key: ${{ secrets.SITEGROUND }}
+          ssh-private-key: ${{ secrets.SG }}
+              
           # if your key is passphrase‐protected, uncomment next line
           # ssh-passphrase: ${{ secrets.SSH_PASSPHRASE }}
 
