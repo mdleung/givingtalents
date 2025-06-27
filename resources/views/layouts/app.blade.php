@@ -129,7 +129,16 @@
     <meta name="format-detection" content="address=no">
     <meta name="format-detection" content="email=no">
 
+        <!-- Skip navigation for screen readers -->
+    <meta name="skip-link" content="#main-content">
+    
+    <!-- Screen reader optimization -->
+    <meta name="screen-reader-optimized" content="true">
 
+    <link rel="icon" type="image/x-icon" href="https://givingtalents.org/public/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://givingtalents.org/public//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://givingtalents.org/public//favicon-16x16.png">
+    
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
