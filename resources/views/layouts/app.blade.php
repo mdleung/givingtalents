@@ -112,9 +112,6 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     
-    <!-- Content Security Policy (adjust as needed) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https://www.youtube.com;">
-
     <!-- Apple Web App -->
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Apple Smart App Banner (if you have a mobile app) -->
