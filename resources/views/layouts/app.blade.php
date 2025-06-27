@@ -108,7 +108,7 @@
     
     <!-- Security headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
+
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     
@@ -116,10 +116,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https://www.youtube.com;">
 
     <!-- Apple Web App -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Giving Talents">
-    
+    <meta name="mobile-web-app-capable" content="yes">
     <!-- Apple Smart App Banner (if you have a mobile app) -->
     <!-- <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID"> -->
     
