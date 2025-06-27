@@ -3,6 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title -->
+    <title>Giving Talents - Making a Difference, One Talent at a Time</title>
+    
+    <!-- Meta description for search engines -->
+    <meta name="description" content="Share your unique talents and skills with the world. Join our movement to build a community where everyone has a place to flourish and contribute to positive change through talents, skills, and treasure.">
+    
+    <!-- Keywords for SEO -->
+    <meta name="keywords" content="giving talents, share skills, community impact, positive change, volunteer, talents sharing, social good, community building, radical love, peacemaker">
+    
+    <!-- Author information -->
+    <meta name="author" content="Giving Talents">
+    
+    <!-- Language -->
+    <meta name="language" content="en">
+    
+    <!-- Robots directive -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://givingtalents.org/">
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#8B5CF6">
+    
+    <!-- Application name -->
+    <meta name="application-name" content="Giving Talents">
+    
+    <!-- Generator -->
+    <meta name="generator" content="Giving Talents Platform">
+    
+    <!-- Copyright -->
+    <meta name="copyright" content="© 2024 Giving Talents. All rights reserved.">
+    
+    <!-- Rating -->
+    <meta name="rating" content="general">
+    
+    <!-- Distribution -->
+    <meta name="distribution" content="global">
+    
+    <!-- Revisit after -->
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph basic tags -->
+    <meta property="og:title" content="Giving Talents - Making a Difference, One Talent at a Time">
+    <meta property="og:description" content="Share your unique talents and skills with the world. Join our movement to build a community where everyone has a place to flourish and contribute to positive change.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://givingtalents.org/">
+    <meta property="og:site_name" content="Giving Talents">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Open Graph image -->
+    <meta property="og:image" content="https://givingtalents.org/public/og-image.jpg">
+    <meta property="og:image:alt" content="Giving Talents - Community of people sharing talents and skills">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    
+    <!-- Additional Open Graph tags -->
+    <meta property="og:determiner" content="the">
+    <meta property="og:updated_time" content="2024-06-26T00:00:00Z">
+
+    <!-- Twitter Card basic tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Giving Talents - Making a Difference, One Talent at a Time">
+    <meta name="twitter:description" content="Share your unique talents and skills with the world. Join our movement to build a community where everyone flourishes and contributes to positive change.">
+    <meta name="twitter:image" content="https://givingtalents.org/public/twitter-card.jpg">
+    <meta name="twitter:image:alt" content="Giving Talents community platform for sharing skills and talents">
+    
+    <!-- Twitter site information -->
+    <meta name="twitter:site" content="@givingtalents">
+    <meta name="twitter:creator" content="@givingtalents">
+    
+    <!-- Twitter domain verification -->
+    <meta name="twitter:domain" content="givingtalents.org">
+
+    <!-- Pinterest -->
+    <meta name="pinterest-rich-pin" content="true">
+    <meta property="article:author" content="Giving Talents">
+    
+    <!-- LinkedIn specific -->
+    <meta property="linkedin:owner" content="giving-talents">
+    
+    <!-- WhatsApp sharing -->
+    <meta property="whatsapp:title" content="Giving Talents - Share Your Talents">
+    <meta property="whatsapp:description" content="Join our movement to make a difference through sharing talents and skills">
+    
+    <!-- DNS prefetch for performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    
+    <!-- Preconnect for critical resources -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Resource hints -->
+    <link rel="prefetch" href="/vision-mission">
+    <link rel="prefetch" href="/contact">
+    
+    <!-- Security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- Content Security Policy (adjust as needed) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https://www.youtube.com;">
+
+    <!-- Apple Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Giving Talents">
+    
+    <!-- Apple Smart App Banner (if you have a mobile app) -->
+    <!-- <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID"> -->
+    
+    <!-- Format detection -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+
+
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Giving Talents",
+      "url": "https://givingtalents.org",
+      "logo": "https://givingtalents.org/images/logo.png",
+      "description": "A movement building community where everyone has a place to flourish and contribute to positive change through sharing talents, skills, and treasure.",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "amie@beyondtheconversation.org",
+        "contactType": "General Inquiry"
+      },
+      "sameAs": [
+        "https://twitter.com/givingtalents",
+        "https://facebook.com/givingtalents",
+        "https://instagram.com/givingtalents",
+        "https://linkedin.com/company/givingtalents"
+      ],
+      "mission": "Building a movement of radical love through giving and receiving talents, skills, and treasure"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Giving Talents",
+      "url": "https://givingtalents.org",
+      "description": "Share your unique talents and skills with the world. Build a community where everyone flourishes and contributes to positive change.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://givingtalents.org/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
     <title>@yield('title', 'Giving Talents - Making a difference, one talent at a time')</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
