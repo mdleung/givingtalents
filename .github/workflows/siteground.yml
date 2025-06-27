@@ -27,7 +27,7 @@ jobs:
           ssh -vvv -p 18765 -i ~/.ssh/id_rsa u1083-2m4vcwbgzr7k@ssh.givingtalents.org "echo 'SSH connected OK'"
 
           echo "Starting rsync..."
-          rsync -avz --delete \
+          rsync -avz \
             --exclude .git --exclude .env --exclude node_modules --exclude vendor \
             -e "ssh -p 18765 -o StrictHostKeyChecking=no" \
             ./ u1083-2m4vcwbgzr7k@ssh.givingtalents.org:~/www/givingtalents.org/laravel/
